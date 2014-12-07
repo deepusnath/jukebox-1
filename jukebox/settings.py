@@ -22,11 +22,12 @@ if not os.path.exists(JUKEBOX_STORAGE_PATH):
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(
-            JUKEBOX_STORAGE_PATH,
-            'db.sqlite'
-        ),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'jukebox',
+        'USER': 'user',
+        'PASSWORD': 'password',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
