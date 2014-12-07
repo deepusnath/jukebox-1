@@ -31,6 +31,7 @@ setup(
         "djangorestframework==2.2.1",
         "simplejson==3.1.0",
         "South==0.7.6",
+        "mysql-python==1.2.5",
     ],
     include_package_data=True,
     scripts=glob.glob("bin/*"),
