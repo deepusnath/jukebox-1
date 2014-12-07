@@ -14,11 +14,6 @@ The playback system figures out who is online using the web interface or API and
 
 libshout3, libshout3-dev and python-dev are required to build the dependecy `python-shout <http://pypi.python.org/pypi/python-shout>`_.
 
-.. image:: http://static.jensnistler.de/jukebox.png
-   :height: 404px
-   :width: 872px
-   :scale: 100%
-   :alt: Democratic Jukebox - your democratic music player
 
 General
 ========
@@ -50,11 +45,14 @@ Install the jukebox in your fresh virtual environment:
 
 Now it's time to configure the jukebox
 
-1. Enter admin credentials and select authentication providers
-2. Create the database
-3. Index your music
+1. Create the database in MySql
+2. Edit your database credentials in settings
+3. Enter admin credentials and select authentication providers
+4. Index your music
 
 That's all
+
+After Updating your database credentials in settings run this commands
 
 ::
 
