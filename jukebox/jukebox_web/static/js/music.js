@@ -389,20 +389,21 @@ Music = {
     },
 
     updateTimeLeft: function() {
-        if (0 == Music.remaining) {
+        if (Music.remaining <= 0) {
             $('#currentSong span.timeRemaining').hide();
-            setTimeout("Music.getCurrentSong()", 1000);
+            setTimeout("Music.getCurrentSong()", Math.random() * 1000);
             return;
         }
         else if (Music.remaining > 0) {
-            var minutes = parseInt(Music.remaining / 60);
             var secondsInt = Music.remaining % 60;
+            var minutes = (Music.remaining - secondsInt) / 60;
             var seconds = secondsInt.toString();
             if (secondsInt < 10) {
                 seconds = "0" + seconds;
             }
-            $('#currentSong span.timeRemaining').show();
-            $('#currentSong span.timeRemaining').html("(" + minutes + ":" + seconds + ")");
+            $('#currentSong span.timeRemaining')
+               .html("(" + minutes + ":" + seconds + ")")
+               .show();
             Music.remaining--;
         }
         setTimeout("Music.updateTimeLeft()", 1000);
