@@ -41,7 +41,7 @@ Install the jukebox in your fresh virtual environment:
 ::
 
     workon jukebox
-    pip install jukebox
+    pip install git+git@github.com:rejahrehim/jukebox.git
 
 Now it's time to configure the jukebox
 
@@ -130,99 +130,3 @@ License
 
 MIT License. See `License <https://github.com/lociii/jukebox/blob/master/LICENSE.rst>`_
 
-Contribute!
-============
-
-You want to contribute to this project? Just fork the repo and do this:
-
-::
-
-    mkproject jukebox
-    git clone git@github.com:[username]/jukebox.git .
-    git remote add upstream git://github.com/lociii/jukebox.git
-    pip install -r requirements.txt
-    cd jukebox
-
-Follow up configuring jukebox like described in Setup. Use ./manage.py instead of the jukebox command.
-
-You can now create a branch to make your actual changes and send a pull request. See `this article <https://www.openshift.com/wiki/github-workflow-for-submitting-pull-requests>`_ for how to do this.
-
-Contributors
-=============
-- Brazilian portuguese translation by `Luan Fonseca de Farias <https://github.com/luanfonceca>`_
-- Bugfixes by `Peter Hoffmann <https://github.com/hoffmann>`_
-- Bugfixes by `Amir H. Hajizamani <https://github.com/amirhhz>`_
-- Bugfixes by `Gabriel Duman <https://github.com/gabber7>`_
-- Bugfixes by `Steffen Zieger <https://github.com/saz>`_
-- Bugfixes by `Jonas Baumann <https://github.com/jone>`_
-- Bugfixes by `imithun <https://github.com/imithun>`_
-
-Release Notes
-==============
-
-0.1.0
-
-- Initial release
-
-0.1.1
-
-- Fixed installer bugs
-- Added personal history
-- Added system tests for api
-
-0.2.0
-
-- Language switch
-- Sortable lists
-- Google-like search operators
-- Autoplay tries to play appropriate music
-- Improved web interface
-
-0.2.1
-
-- fixed issue with autoplay
-
-0.3.0
-
-- Added jukebox_watch
-- Added list of voters
-- Minor improvements
-
-0.3.1
-
-- Improved exception handling
-- Added rss for current song
-- Minor bug fixes
-
-0.3.2
-
-- Update dependencies
-- Fix authentication problems
-- Switch from inotify to watchdog
-
-0.3.3
-
-- Fix manifest
-
-0.3.4
-
-- Fix to skip unauthorized sessions
-- Updated wsgi handler
-
-0.3.5
-
-- Update mutagen (Thanks guys for removing old packages)
-- Fixed minor bugs (Thanks to `saz <https://github.com/saz/>`_)
-
-0.3.7
-
-- Fix buggy pypi package
-
-0.4.0
-
-- Split jukebox in different packages
-- Strip artist from album data
-
-0.4.1
-
-- Add missing wsgi file
