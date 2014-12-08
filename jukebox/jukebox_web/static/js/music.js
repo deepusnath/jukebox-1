@@ -74,6 +74,28 @@ Music = {
         $("#uploadBtn").bind("change", function () {
              $("#uploadFile").val(this.value);
         });
+
+        $("#volup").bind("click", function() {
+           $.ajax({
+                url: "/api/v1/volume/up",
+                type: "POST",
+                success: function(data) {
+                    alert(data);
+                }
+            });
+            return false;
+        });
+
+        $("#voldown").bind("click", function() {
+            $.ajax({
+                url: "/api/v1/volume/down",
+                type: "POST",
+                success: function(data) {
+                    alert(data);
+                }
+            });
+            return false;
+        });
         $("#searchform span.searchsubmit").bind("click", function() {
             Music.options = {"search_term": $("input.searchterm").val()};
             Music.loadList("/api/v1/songs");
