@@ -65,6 +65,11 @@
                             {% trans 'Favourites' %}
                         </a>
                     </li>
+                    <li>
+                        <a href="#" id="song_upload_button" class="try sprited">
+                            {% trans 'Upload' %}
+                        </a>
+                    </li>
                 </ul>
 
                 <h1>
@@ -97,6 +102,17 @@
                         </a>
                     </li>
                 </ul>
+       <h1>
+                    {% trans "Volume" %}
+            </h1>
+        <ul>
+                 <li>
+            <a href="#" id="volup"><img src="/static/img/plus.png" alt="{% trans 'Vol Up' %}" width="22" height="22" /></a>
+        </li>
+                <li>
+                        <a href="#" id="voldown"><img src="/static/img/minus.png" alt="{% trans 'Vol Down' %}" width="22" height="22" /></a>
+        </li>
+            </ul>
             </div>
             <div id="main_spacer"></div>
             <div id="main">
@@ -151,9 +167,6 @@
                 <li>
                     <a href="/language/set/de">{% trans 'German' %}</a>
                 </li>
-                <li>
-                    <a href="/language/set/pt-br">{% trans 'Brazilian Portuguese' %}</a>
-                </li>
             </ul>
             <h1>{% trans 'Misc' %}</h1>
             <ul>
@@ -162,11 +175,36 @@
                 </li>
             </ul>
         </div>
+        <div id="song_upload" style="display: none; left: 50%; margin-left: -223px; z-index: 1002; position: fixed; top: 50%; margin-top: -159px;">
+            <h3 id="see_id" class="sprited">Upload New Song</h3>
+            <div id="song_upload_form">
+                <div id="errorMessages"></div>
+                <form action="/api/v1/savesong/" method="post" id="uploadform" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input id="uploadFile" placeholder="Choose File" disabled="disabled" />
+                    <div class="fileUpload btn btn-primary submit">
+                        <span>Browse</span>
+                        <input type="file" name="newsong" id="uploadBtn" class="upload-input upload">
+                    </div>
+                    <label><strong>Song/Title*:</strong><input type="text" name="title" id="title" maxlength="100" class="sprited"></label>
+                    <label><strong>Artist*:</strong><input type="text" name="artist" id="artist" maxlength="100" class="sprited"></label>
+                    <label><strong>Album/Movie:</strong><input type="text" name="album" id="album" maxlength="100" class="sprited"></label>
+                    <label><strong>Genre:</strong><input type="text" name="gnere" id="gnere" maxlength="100" class="sprited"></label>
+                    <label><strong>Year:</strong><input type="text" name="year" id="year" maxlength="100" class="sprited"></label>
+                    <button type="submit" id="submitButton" class="searchsubmit submit">Save</button>
+                    <button  id="close_x" class="close  searchsubmit btn-danger" >Cancel</button>
+                </form>
+            </div>
+        </div>
         <div id="csrf_token">
             {% csrf_token %}
         </div>
-        <script type="text/javascript" src="/static/js/jquery-1.7.min.js"></script>
+        <div id="wait" class="waitingImg">
+            <img src="/static/img/wait.gif" width="64" height="64" />
+        </div>
+    <script type="text/javascript" src="/static/js/jquery-1.7.min.js"></script>
         <script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
+    <script type="text/javascript" src="/static/js/jquery.lightbox_me.js"></script>
         <script type="text/javascript" src="/static/js/music.js"></script>
     </body>
 </html>
