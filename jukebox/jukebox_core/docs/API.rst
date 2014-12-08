@@ -27,6 +27,9 @@ GET methods
     /api/v1/favourites
     /api/v1/favourites/[song_id]
     /api/v1/ping
+    /api/v1/savesong
+    /api/v1/volume/up
+    /api/v1/volume/down
 
 *Sort parameters for list functions*
 
@@ -154,7 +157,10 @@ POST methods
 
     /api/v1/queue
     /api/v1/favourites
-
+    /api/v1/savesong
+    /api/v1/volume/up
+    /api/v1/volume/down
+    
 **/api/v1/queue**
 
 Vote for song, add to queue if not yet in
@@ -170,6 +176,24 @@ Add song to favourite list
 *Required post parameters*
 
 - id (id of song to be added)
+
+**/api/v1/savesong**
+
+Upload new song to the system
+
+- File (Songs file)
+- Song title (Name / Title of song )
+- Album/Movie (Album/Movie of song )
+- Genre (Genre of song)
+- Year (Year of song )
+
+**/api/v1/volume/down**
+
+Reduce volume (Works in linux)
+
+**/api/v1/volume/up**
+
+Increase volume (Works in linux)
 
 DELETE methods
 ===============
