@@ -509,3 +509,22 @@ class ping(JukeboxAPIView):
                 "ping": True
             }
         )
+
+class SaveSong(JukeboxAPIView):
+    permissions = (IsAuthenticated, )
+    def post(self, request):
+
+        request.session.modified = True
+
+        form = forms.NewsongForm(request.POST, request.FILES)
+
+        upload_api = api.UploadNewSong()
+
+        if form.is_valid():
+            msg=upload_api.add(self.request.POST, self.request.FILES)
+        else:
+            msg={"error":"2", "message":"Post invalid"}
+
+        return Response(
+            data= msg
+        )

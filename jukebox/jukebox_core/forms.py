@@ -194,3 +194,26 @@ class QueueForm(forms.Form):
         help_text="'asc', 'desc'",
         required=False
     )
+
+class NewsongForm(forms.Form):
+    newsong = forms.FileField(
+        label='Select a file',
+        help_text='max. 42 megabytes'
+    )
+    artist = forms.CharField(
+        max_length=256
+    )
+    album = forms.CharField(
+        max_length=256,
+        required=False
+    )
+    genre = forms.CharField(
+        max_length=256,
+        required=False
+    )
+    title = forms.CharField(
+        max_length=200
+    )
+    year = forms.IntegerField(
+        required=False
+    )

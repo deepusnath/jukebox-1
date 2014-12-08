@@ -33,6 +33,11 @@ DATABASES = {
 
 SITE_ID = 1
 
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
+MEDIA_ROOT = os.path.join(SITE_ROOT,'uploads')
+MEDIA_URL = '/uploads/'
+
 TIME_ZONE = 'Europe/Berlin'
 LANGUAGE_CODE = 'en-us'
 LANGUAGES = (

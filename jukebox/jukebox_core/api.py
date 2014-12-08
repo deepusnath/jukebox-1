@@ -10,7 +10,7 @@ from datetime import datetime
 from signal import SIGABRT
 from django.contrib.auth.models import User
 from models import Song, Artist, Album, Genre, Queue, Favourite, History, Player
-
+from mutagen.mp3 import MP3
 
 class api_base:
     count = 30
@@ -979,3 +979,47 @@ class players(api_base):
         return {
             "pid": pid,
         }
+
+class UploadNewSong:
+    def add(self, details, files ):
+
+        tags = {
+                "artist": None,
+                "title": None,
+                "album": None,
+                "genre": None,
+                "year": None,
+                "length": None,
+            }
+        tags["artist"] = details['artist']
+        tags["album"] = details['album']
+        tags["genre"] = details['gnere']
+
+        if (details['year']):
+            tags["year"] = details['year']
+        else:
+            tags["year"] = None
+
+        tags["artist"],created = Artist.objects.get_or_create(Name=tags["artist"])
+        tags["album"],created = Album.objects.get_or_create(Title=tags["album"])
+        tags["genre"],created = Genre.objects.get_or_create(Name=tags["genre"])
+        fileType = ['mp3','mpeg',]
+        if files['newsong'].content_type.split('/')[1] in fileType:
+            newsong = Song(
+                Artist=tags["artist"],
+                Album=tags["album"],
+                Genre=tags["genre"],
+                Title=details['title'],
+                Year=tags["year"],
+                Length='0',
+                Filename=files['newsong'],
+            )
+            newsong.save()
+            audio = MP3(newsong.Filename.name)
+            newsong.Length = audio.info.length
+            newsong.save()
+            msg={"error":"0", "message":"Song Saved"}
+        else:
+            msg={"error":"1", "message":"File Type Not Supported"}
+
+        return msg

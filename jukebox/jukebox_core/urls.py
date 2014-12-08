@@ -75,4 +75,9 @@ urlpatterns = patterns("",
         views.ping.as_view(),
         name="jukebox_api_ping"
     ),
+    url(
+        r'^api/v1/savesong/$',
+        views.SaveSong.as_view(),
+        name='savesong'
+    ),
 )

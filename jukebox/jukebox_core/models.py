@@ -3,6 +3,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.syndication.views import Feed
+import os
+from django.conf import settings
 import time
 
 class Artist(models.Model):
@@ -48,7 +50,7 @@ class Song(models.Model):
     Title = models.CharField(max_length=200)
     Year = models.IntegerField(null=True)
     Length = models.IntegerField()
-    Filename = models.CharField(max_length=1000)
+    Filename = models.FileField(upload_to=os.path.join(settings.MEDIA_ROOT,'songs'))
 
 
 class Queue(models.Model):

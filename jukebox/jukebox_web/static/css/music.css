@@ -9,6 +9,9 @@ table {
     width: 100%;
 }
 
+#volCtrl {
+    clear:both;
+}
 fieldset, img {
     border: 0;
 }
@@ -61,7 +64,7 @@ blockquote {
 }
 
 a, a:hover, a:visited {
-    color: #ED9005;
+    color: #15adff;
     text-decoration: none;
 }
 
@@ -174,14 +177,14 @@ span.searchsubmit {
     width: 54px;
     padding: 0 8px;
 
-    background-color: #F07F09;
-    background: -webkit-linear-gradient(top,#EFA73D,#ED9005);
-    background: -moz-linear-gradient(top,#EFA73D,#ED9005);
-    background: -ms-linear-gradient(top,#EFA73D,#ED9005);
-    background: -o-linear-gradient(top,#EFA73D,#ED9005);
-    background: linear-gradient(top,#EFA73D,#ED9005);
+    background-color: #0092e1;
+    background: -webkit-linear-gradient(top,#2fb6ff,#15adff);
+    background: -moz-linear-gradient(top,#2fb6ff,#15adff);
+    background: -ms-linear-gradient(top,#2fb6ff,#15adff);
+    background: -o-linear-gradient(top,#2fb6ff,#15adff);
+    background: linear-gradient(top,#2fb6ff,#15adff);
 
-    border: 1px solid #964E06;
+    border: 1px solid #0092e1;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
@@ -323,7 +326,7 @@ span.searchreset {
 
 #accountoptions ul li.active {
     font-weight: bold;
-    border-left:  3px solid #ED9005;
+    border-left:  3px solid #15adff;
 }
 
 /*
@@ -365,7 +368,7 @@ span.searchreset {
 
 #sidebar ul li.active {
     font-weight: bold;
-    border-left:  3px solid #ED9005;
+    border-left:  3px solid #15adff;
 }
 
 #main_spacer {
@@ -413,7 +416,7 @@ span.searchreset {
 }
 
 #main table.list th:hover {
-    color: #ED9005;
+    color: #15adff;
 }
 
 #main table.list th.sort_asc:after {
@@ -496,10 +499,165 @@ span.searchreset {
 }
 
 #main table.list td.filter:hover {
-    background-color: #EFA73D;
+    background-color: #95daff;
 }
 
 #main table.list td img {
     margin-right: 10px;
     cursor: pointer;
+}
+#song_upload {
+    -moz-border-radius: 6px;
+    background: #eef2f7;
+    -webkit-border-radius: 6px;
+    border: 1px solid #536376;
+    -webkit-box-shadow: rgba(0,0,0,.6) 0px 2px 12px;
+    -moz-box-shadow:  rgba(0,0,0,.6) 0px 2px 12px;;
+    padding: 14px 22px;
+    width: 400px;
+    position: relative;
+    display: none;
+}
+#song_upload #song_upload_form {
+    margin-top: 13px;
+}
+#song_upload label {
+    display: block;
+    margin-bottom: 10px; 
+    color: #536376;
+    font-size: .9em;
+}
+#song_upload label input {
+    display: block;
+    width: 393px;
+    height: 30px;
+    background-position: -201px 0;
+    padding: 2px 8px;
+}
+#song_upload input {
+    background-position: -201px 0;
+    padding: 2px 8px;
+    font-size: 1em;
+    line-height: 28px;
+    border: 1px solid #efefef;
+}
+
+#song_upload button {
+    width:70px;
+    height: 20px;
+}
+#see_id {
+    height: 23px;
+    background-position: -202px -133px;
+    font-weight: bold;
+    text-align: center;
+}
+#errorMessages {
+    text-align: center;
+    color: #ff4008;
+    padding: 8px 0;
+}
+.submit {
+    -moz-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+    box-shadow:inset 0px 1px 0px 0px #cae3fc;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #4197ee) );
+    background:-moz-linear-gradient( center top, #79bbff 5%, #4197ee 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#4197ee');
+    background-color:#79bbff;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #469df5;
+    color:#ffffff;
+    font-family:arial;
+    font-size:14px;
+    font-weight:bold;
+    padding:5px 14px;
+    text-decoration:none;
+    text-shadow:1px 1px 0px #287ace;
+    cursor:pointer;
+    min-width: 60px;
+    min-height: 28px;
+    float: right;
+}
+.submit:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4197ee), color-stop(1, #79bbff) );
+    background:-moz-linear-gradient( center top, #4197ee 5%, #79bbff 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4197ee', endColorstr='#79bbff');
+    background-color:#4197ee;
+}
+.submit:active {
+    position:relative;
+    top:1px;
+}
+
+.upload-input {
+    padding: 6px;
+    font-size: 13px;
+    border: 1px solid #d5d5d5;
+    color: #333;
+    border-radius: 4px 4px 4px 4px !important;
+}
+.fileUpload {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    width: 70px;
+    text-align: center;
+    vertical-align: middle;
+    padding:5px 0 0 0 !important;
+    min-height: 23px !important;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.btn-danger {
+    color: #ffffff;
+    font-family: arial;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #da4f49;
+    background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
+    background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
+    border-color: #bd362f #bd362f #802420;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #802420;
+    padding:5px 14px;
+    cursor:pointer;
+    min-width: 60px;
+    min-height: 28px;
+    float: right;
+    margin-right: 20px;
+}
+.waitingImg {
+    width:69px;
+    height:89px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    padding:2px;
+    z-index: 999999;
+    display:none;
+    margin-top: -44px;
+    margin-left: -34px;
 }

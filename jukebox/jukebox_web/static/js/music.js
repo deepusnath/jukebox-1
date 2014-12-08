@@ -28,7 +28,52 @@ Music = {
             Music.loadList($(this).attr("href"));
             return false;
         });
+        $("#song_upload_button").bind("click", function(e) {
+            $('#song_upload').lightbox_me({
+                centered: true,
+                onLoad: function() {
+                    $('#song_upload').find('input:first').focus();
+                }
+            });
+            e.preventDefault();
+        });
 
+        $("#uploadform").bind("submit", function(){
+            var formData = new FormData($(this)[0]);
+            $("#submitButton").attr('disabled', 'disabled');
+            $("#wait").css("display","block");
+            $.ajax({
+                url:$(this).attr("action"),
+                type: 'POST',
+                data: formData,
+                async: true,
+                success: function (data) {
+                    if (data.error == 0) {
+                        $("#errorMessages").html(data.message);
+                        $('#song_upload').trigger('close');
+                        $("#submitButton").removeAttr('disabled');
+                        $("#wait").css("display","none");
+                    }
+                    else {
+                        $("#errorMessages").html(data.message);
+                        $("#submitButton").removeAttr('disabled');
+                        $("#wait").css("display","none");
+                    }
+                },
+                error: function (error) {
+                    alert("Sorry something went wrong!");
+                    $("#wait").css("display","none");
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+            return false;
+        });
+
+        $("#uploadBtn").bind("change", function () {
+             $("#uploadFile").val(this.value);
+        });
         $("#searchform span.searchsubmit").bind("click", function() {
             Music.options = {"search_term": $("input.searchterm").val()};
             Music.loadList("/api/v1/songs");
