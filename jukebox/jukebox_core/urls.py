@@ -80,4 +80,14 @@ urlpatterns = patterns("",
         views.SaveSong.as_view(),
         name='savesong'
     ),
+    url(
+        r"^api/v1/volume/down$",
+        views.volume_down.as_view(),
+        name="jukebox_web_voldown"
+    ),
+    url(
+        r"^api/v1/volume/up$",
+        views.volume_up.as_view(),
+        name="juklebox_web_volup"
+    ),
 )

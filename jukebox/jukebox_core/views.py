@@ -528,3 +528,39 @@ class SaveSong(JukeboxAPIView):
         return Response(
             data= msg
         )
+
+class volume_down(JukeboxAPIView):
+    permissions = (IsAuthenticated, )
+    def post(self, request):
+
+        request.session.modified = True
+
+
+        volume_api = api.Volume()
+
+        try:
+            msg=volume_api.down()
+        except Exception as e:
+            msg={"error":"1", "message":e}
+
+
+        return Response(
+            data= msg
+        )
+
+class volume_up(JukeboxAPIView):
+    permissions = (IsAuthenticated, )
+    def post(self, request):
+
+        request.session.modified = True
+
+        volume_api = api.Volume()
+
+        try:
+            msg=volume_api.up()
+        except Exception as e:
+            msg={"error":"1", "message":e}
+
+        return Response(
+            data= msg
+        )

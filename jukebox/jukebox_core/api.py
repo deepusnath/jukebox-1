@@ -1023,3 +1023,22 @@ class UploadNewSong:
             msg={"error":"1", "message":"File Type Not Supported"}
 
         return msg
+
+class Volume:
+    def up(self):
+
+        p = os.popen('amixer set Master 5%+',"r")
+        while 1:
+            line = p.readline()
+            if not line: break
+            msg={"error":"0", "message":"Vol up"}
+        return  msg
+
+    def down(self):
+
+        p = os.popen('amixer set Master 5%-',"r")
+        while 1:
+            line = p.readline()
+            if not line: break
+            msg={"error":"0", "message":"Vol down"}
+        return  msg
