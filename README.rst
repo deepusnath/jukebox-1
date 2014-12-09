@@ -90,9 +90,9 @@ Play your music locally on the machine running the jukebox.
 
 ::
 
-    pip install jukebox-mpg123
+    pip install git+https://github.com/rejahrehim/jukebox_mpg123.git
 
-See `jukebox_mpg123 <https://github.com/lociii/jukebox_mpg123>`_ for details and startup command.
+See `jukebox_mpg123 <https://github.com/rejahrehim/jukebox_mpg123>`_ for details and startup command.
 
 **Contribute!**
 
@@ -112,7 +112,7 @@ See `jukebox_live_indexer <https://github.com/lociii/jukebox_live_indexer>`_ for
 API
 =============
 
-jukebox_core provides a fully fledged REST API for authenticated users. See `API reference <https://github.com/lociii/jukebox/blob/master/jukebox/jukebox_core/docs/API.rst>`_
+jukebox_core provides a fully fledged REST API for authenticated users. See `API reference <https://github.com/rejahrehim/jukebox/blob/master/jukebox/jukebox_core/docs/API.rst>`_
 
 Search filters
 ===============
@@ -128,5 +128,5 @@ Jukebox supports google-like search filter. Available search fields: title, arti
 License
 ========
 
-MIT License. See `License <https://github.com/lociii/jukebox/blob/master/LICENSE.rst>`_
+MIT License. See `License <https://github.com/rejahrehim/jukebox/blob/master/LICENSE.rst>`_
 
