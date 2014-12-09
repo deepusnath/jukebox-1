@@ -253,41 +253,41 @@ class songs(api_base):
         # searches
         if not self.search_term is None:
             object_list = object_list.filter(
-                Q(Title__contains=self.search_term)
+                Q(Title__icontains=self.search_term)
                 |
-                Q(Artist__Name__contains=self.search_term)
+                Q(Artist__Name__icontains=self.search_term)
                 |
-                Q(Album__Title__contains=self.search_term)
+                Q(Album__Title__icontains=self.search_term)
             )
         if not self.search_title is None:
             object_list = object_list.filter(
-                 Title__contains=self.search_title
+                 Title__icontains=self.search_title
              )
         if not self.search_artist_name is None:
             object_list = object_list.filter(
-                 Artist__Name__contains=self.search_artist_name
+                 Artist__Name__icontains=self.search_artist_name
              )
         if not self.search_album_title is None:
             object_list = object_list.filter(
-                 Album__Title__contains=self.search_album_title
+                 Album__Title__icontains=self.search_album_title
              )
 
         # filters
         if not self.filter_year is None:
             object_list = object_list.filter(
-                 Year__exact=self.filter_year
+                 Year__iexact=self.filter_year
              )
         if not self.filter_genre is None:
             object_list = object_list.filter(
-                 Genre__exact=self.filter_genre
+                 Genre__iexact=self.filter_genre
              )
         if not self.filter_album_id is None:
             object_list = object_list.filter(
-                 Album__exact=self.filter_album_id
+                 Album__iexact=self.filter_album_id
              )
         if not self.filter_artist_id is None:
             object_list = object_list.filter(
-                 Artist__exact=self.filter_artist_id
+                 Artist__iexact=self.filter_artist_id
              )
 
         # order
