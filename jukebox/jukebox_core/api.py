@@ -372,7 +372,7 @@ class songs(api_base):
                 self.addToHistory(song_instance, None)
 
         # remove missing files
-        if not os.path.exists(song_instance.Filename.encode('utf8')):
+        if not os.path.exists(song_instance.Filename.name.encode('utf8')):
             Song.objects.all().filter(id=song_instance.id).delete()
             return self.getNextSong()
 
@@ -557,6 +557,7 @@ class history(api_base):
             },
             "queued": False,
             "favourite": False,
+            "length": item.Song.Length,
             "created": formats.date_format(
                 item.Created, "DATETIME_FORMAT"
             ),
